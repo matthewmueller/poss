@@ -14,7 +14,7 @@ module.exports = poss
 function * poss (gen) {
   var o
   try { o = yield gen }
-  catch (e) return e
+  catch (e) { return e }
   return o
 }
 
