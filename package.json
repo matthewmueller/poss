@@ -1,7 +1,7 @@
 {
   "name": "poss",
-  "version": "1.0.1",
-  "description": "This poss might work",
+  "version": "2.0.0",
+  "description": "Cleaner try-catch. 'This poss might work'",
   "keywords": [
     "better",
     "looking",
@@ -15,8 +15,11 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "mocha": "*",
-    "should": "*"
+    "co-mocha": "1.1.3",
+    "mocha": "3.0.2"
+  },
+  "scripts": {
+    "test": "make test"
   },
   "main": "index"
 }
