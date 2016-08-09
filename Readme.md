@@ -19,8 +19,11 @@ try {
 You can do this:
 
 ```js
-var resource = yield poss(fetch(token))
-if (resource instanceof Error) return resource
+let [resource, err] = yield poss(fetch(token))
+if (err !== null) {
+  // do something with the error
+}
+
 // do something with the resource
 ```
 
