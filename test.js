@@ -11,7 +11,7 @@ let poss = require('./')
 
 describe('poss', function() {
   it('should catch errors', function * () {
-    let [val, err] = yield poss(function * () {
+    let [err, val] = yield poss(function * () {
       throw new Error('wtf!')
     })
 
@@ -20,7 +20,7 @@ describe('poss', function() {
   })
 
   it('should return values', function * () {
-    let [val, err] = yield poss(function * () {
+    let [err, val] = yield poss(function * () {
       return 'hi'
     })
 
