@@ -1,4 +1,10 @@
 
+3.0.1 / 2016-09-26
+==================
+
+  * support promises
+  * update readme for async/await folks
+
 3.0.0 / 2016-08-09
 ==================
 
