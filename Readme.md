@@ -3,13 +3,13 @@
 
   **"This poss might work..."**
 
-  Slightly better-looking error handling for generators
+  Slightly better-looking error handling for generators and async/await.
 
 ## Instead of this:
 
 ```js
 try {
-  var resource = yield fetch(token)
+  var resource = await fetch(token)
 } catch (err) {
   // do something with the error
 }
@@ -19,7 +19,7 @@ try {
 You can do this:
 
 ```js
-let [err, resource] = yield poss(fetch(token))
+const [err, resource] = await poss(fetch(token))
 if (err !== null) {
   // do something with the error
 }
