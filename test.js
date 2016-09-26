@@ -27,4 +27,22 @@ describe('poss', function() {
     assert.equal(val, 'hi')
     assert.equal(err, null)
   })
+
+  it('should also work for async/await', function * () {
+    let [err, val] = yield poss(function () {
+      return Promise.resolve('hi')
+    })
+
+    assert.equal(err, null)
+    assert.equal(val, 'hi')
+  })
+
+  it('should also work for async/await', function * () {
+    let [err, val] = yield poss(function () {
+      return Promise.reject(new Error('wtf!'))
+    })
+
+    assert.equal(err.message, 'wtf!')
+    assert.equal(val, null)
+  })
 })
