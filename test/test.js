@@ -3,7 +3,7 @@
  */
 
 let assert = require('assert')
-let poss = require('./')
+let poss = require('../')
 
 /**
  * Tests
@@ -28,21 +28,23 @@ describe('poss', function() {
     assert.equal(err, null)
   })
 
-  it('should also work for async/await', function * () {
-    let [err, val] = yield poss(function () {
-      return Promise.resolve('hi')
+  it('should work for promise resolves', async () => {
+    let p = new Promise(function (resolve) {
+      return resolve('hi')
     })
 
+    let [err, val] = await poss(p)
     assert.equal(err, null)
     assert.equal(val, 'hi')
   })
 
-  it('should also work for async/await', function * () {
-    let [err, val] = yield poss(function () {
-      return Promise.reject(new Error('wtf!'))
+  it('should work for promise rejections', async () => {
+    let p = new Promise(function (resolve, reject) {
+      return reject(new Error('wtf!'))
     })
 
-    assert.equal(err.message, 'wtf!')
+    let [err, val] = await poss(p)
     assert.equal(val, null)
+    assert.equal(err.message, 'wtf!')
   })
 })

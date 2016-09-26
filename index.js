@@ -1,8 +1,16 @@
+'use strict'
+
 /**
  * Module Dependencies
  */
 
-module.exports = poss
+const co = require('co')
+
+/**
+ * Export `poss`
+ */
+
+module.exports = co.wrap(poss)
 
 /**
  * Poss

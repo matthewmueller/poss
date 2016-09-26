@@ -15,11 +15,33 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "async-to-gen": "1.1.3",
+    "babel-eslint": "6.1.2",
     "co-mocha": "1.1.3",
-    "mocha": "3.0.2"
+    "devtool": "2.2.0",
+    "mocha": "3.0.2",
+    "nyc": "8.3.0",
+    "snazzy": "5.0.0"
   },
   "scripts": {
-    "test": "make test"
+    "test": "nyc mocha",
+    "test:browser": "devtool node_modules/mocha/bin/_mocha -qc -- test/",
+    "test:watch": "mocha -w",
+    "test:cov": "nyc --reporter=lcov mocha && open coverage/lcov-report/index.html",
+    "test:only": "mocha",
+    "lint": "snazzy",
+    "pretest": "npm run lint"
   },
-  "main": "index"
+  "main": "index",
+  "standard": {
+    "parser": "babel-eslint",
+    "globals": [
+      "describe",
+      "it",
+      "before",
+      "beforeEach",
+      "after",
+      "afterEach"
+    ]
+  }
 }
